@@ -1,0 +1,1 @@
+web: sh setup.sh && streamlit run graph_reader_app.py
