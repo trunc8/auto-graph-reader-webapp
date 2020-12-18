@@ -1,7 +1,6 @@
 # trunc8 did this
 import csv
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
 
 # Python scripts
@@ -40,22 +39,6 @@ def getAxes(img):
     'start': helper_functions.findFirstNonZeroElement(cropped_openedy[xaxis_row, :]),
     'end': helper_functions.findLastNonZeroElement(cropped_openedy[xaxis_row, :])
   }
-
-  # Plotting
-  plt.subplot(3,3,1),plt.imshow(img,cmap = 'gray')
-  plt.title('Cropped'), plt.xticks([]), plt.yticks([])
-  plt.subplot(3,3,2),plt.imshow(sobelx,cmap = 'gray')
-  plt.title('Sobel X'), plt.xticks([]), plt.yticks([])
-  plt.subplot(3,3,3),plt.imshow(sobely,cmap = 'gray')
-  plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
-  plt.subplot(3,3,4),plt.imshow(openedx,cmap = 'gray')
-  plt.title('Opened Sobel X'), plt.xticks([]), plt.yticks([])
-  plt.subplot(3,3,5),plt.imshow(openedy,cmap = 'gray')
-  plt.title('Opened Sobel Y'), plt.xticks([]), plt.yticks([])
-  plt.subplot(3,3,6),plt.imshow(cropped_openedx,cmap = 'gray')
-  plt.title('Y axis'), plt.xticks([]), plt.yticks([])
-  plt.subplot(3,3,7),plt.imshow(cropped_openedy,cmap = 'gray')
-  plt.title('X axis'), plt.xticks([]), plt.yticks([])
 
   return [xaxis, yaxis]
 

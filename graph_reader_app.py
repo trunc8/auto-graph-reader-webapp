@@ -7,7 +7,6 @@ import bisect
 import csv
 import cv2
 import logging
-import matplotlib.pyplot as plt
 import numpy as np
 
 # Python scripts
@@ -37,7 +36,6 @@ def main():
     img = cv2.cvtColor(color_img, cv2.COLOR_BGR2GRAY)
     
     # Processing
-    plt.figure("Pre-OCR")
     trimmed_img = helper_functions.trimWhitespace(img)
 
     logging.info("Getting X and Y axes...")

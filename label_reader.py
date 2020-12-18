@@ -3,7 +3,6 @@ import collections
 import copy
 import cv2
 import imutils
-import matplotlib.pyplot as plt
 import numpy as np
 import pytesseract
 
@@ -41,7 +40,6 @@ def getYlabel(img, xaxis):
                             max(0,x-margin):min(width,x+w+margin)])
     
   ylabels = [float('inf')]*len(ypixels)
-  plt.figure("y-label OCR")
   for i,lab in enumerate(label_images):
     lab = cv2.resize(lab, None, fx=10.5, fy=10.5, interpolation=cv2.INTER_CUBIC)
     kernel = np.ones((1, 1), np.uint8)
@@ -55,8 +53,6 @@ def getYlabel(img, xaxis):
     except:
       pass
     label_images[i] = lab
-    plt.subplot(3, len(ypixels)//3+1, i+1), plt.imshow(lab,cmap = 'gray')
-    plt.title(f'label{i}'), plt.axis('off')
     # cv2.imshow(f'label{i}', lab)
 
   if (ylabels.count(float('inf')) > len(ylabels) - 3):
@@ -80,9 +76,6 @@ def getYlabel(img, xaxis):
   cv2.waitKey(0)
   cv2.destroyAllWindows()
 
-  plt.figure("Pre-OCR")
-  plt.subplot(3,3,8),plt.imshow(img,cmap = 'gray')
-  plt.title('Behind Y axis'), plt.xticks([]), plt.yticks([])
 
   zipped_y = zip(ypixels, ylabels)
   return list(zipped_y)
@@ -118,7 +111,6 @@ def getXlabel(img, yaxis):
                             max(0,x-margin):min(width,x+w+margin)])
     
   xlabels = [float('inf')]*len(xpixels)
-  plt.figure("x-label OCR")
   for i,lab in enumerate(label_images):
     lab = cv2.resize(lab, None, fx=10.5, fy=10.5, interpolation=cv2.INTER_CUBIC)
     kernel = np.ones((1, 1), np.uint8)
@@ -132,8 +124,6 @@ def getXlabel(img, yaxis):
     except:
       pass
     label_images[i] = lab
-    plt.subplot(3, len(xpixels)//3+1, i+1),plt.imshow(lab,cmap = 'gray')
-    plt.title(f'label{i}'), plt.axis('off')
     # cv2.imshow(f'label{i}', lab)
 
   # cv2.imshow('thresh', thresh)
@@ -142,9 +132,6 @@ def getXlabel(img, yaxis):
   cv2.waitKey(0)
   cv2.destroyAllWindows()
 
-  plt.figure("Pre-OCR")
-  plt.subplot(3,3,9),plt.imshow(img,cmap = 'gray')
-  plt.title('Below X axis'), plt.xticks([]), plt.yticks([])
 
   zipped_x = sorted(zip(xpixels, xlabels)) # index of both lists in ascending order of xpixels
   return list(zipped_x)
