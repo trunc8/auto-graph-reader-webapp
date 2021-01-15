@@ -1,6 +1,10 @@
 # Automated Graph Reader Web-app
 
-![Auto-graph Reader Demo](https://raw.githubusercontent.com/trunc8/auto-graph-reader-webapp/master/assets/auto-graph-reader-demo.png)
+### Demo
+![Auto-graph Reader Demo](assets/auto-graph-reader-demo.gif)
+
+### Interface
+![Auto-graph Reader Interface](assets/auto-graph-reader-demo.png)
 
 ### Instructions to Use
 The user uploads a simple graph snippet from any document/research paper. The app automatically reads the X and Y labels after cleaning the X, Y and graph titles. It allows you to query Y-values for desired X-values. It also alerts the user when the graph is too complex for it to process.
